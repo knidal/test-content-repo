@@ -33,3 +33,13 @@ npm run dev
 ```
 
 The application will be available at `http://localhost:3000`. Hot reload is enabled by default, so any changes you make to source files will be reflected immediately in the browser.
+
+## Troubleshooting
+
+If the dev server fails to start, check that port 3000 is not already in use. You can specify an alternative port with:
+
+```bash
+PORT=3001 npm run dev
+```
+
+For Docker-related issues, ensure the Docker daemon is running and your user has permission to access the Docker socket.
