@@ -1,0 +1,24 @@
+{
+  "name": "Acme Platform Docs",
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": ["getting-started"]
+    },
+    {
+      "group": "Architecture",
+      "pages": [
+        "architecture/overview",
+        "architecture/data-layer",
+        "architecture/deployment"
+      ]
+    },
+    {
+      "group": "Guides",
+      "pages": [
+        "guides/authentication",
+        "guides/monitoring"
+      ]
+    }
+  ]
+}
