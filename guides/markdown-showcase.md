@@ -12,7 +12,7 @@ This page demonstrates every markdown feature supported by the platform. For pla
 
 ## Standard Text Formatting
 
-Regular paragraphs are separated by blank lines. Inline formatting includes **bold text**, *italic text*, ***bold italic***, `inline code`, and ~~strikethrough~~. Links look like [this](https://example.com) and inline images like ![logo](https://example.com/logo.png) stay embedded in the paragraph.
+Regular paragraphs are separated by blank lines. Inline formatting includes **bold text**, *italic text*, ***bold italic***, `inline code`, and ~~strikethrough~~. Links look like [this](https://example.com). Inline images mixed with text like ![logo](https://picsum.photos/seed/logo/20/20) are kept as text, not displayed as media.
 
 ## Headings
 
@@ -104,32 +104,32 @@ Content below the break.
 
 Standalone images are displayed as media:
 
-![Architecture diagram](https://example.com/architecture.png)
+![Architecture diagram](https://picsum.photos/seed/architecture/800/400)
 
 Multiple consecutive images each display separately:
 
-![Frontend flow](https://example.com/frontend.png)
-![Backend flow](https://example.com/backend.png)
+![Frontend flow](https://picsum.photos/seed/frontend/600/300)
+![Backend flow](https://picsum.photos/seed/backend/600/300)
 
 ## HTML Media Tags
 
-HTML media tags are recognized and displayed as their respective media types.
+HTML media tags are recognized and converted to their respective media types.
 
 Source:
 
 ```html
-<img src="https://example.com/diagram.png" alt="System diagram" />
-<video src="https://example.com/demo.mp4"></video>
-<audio src="https://example.com/podcast.mp3"></audio>
+<img src="image.png" alt="System diagram" />
+<video src="demo.mp4"></video>
+<audio src="podcast.mp3"></audio>
 ```
 
 Result:
 
-<img src="https://example.com/diagram.png" alt="System diagram" />
+<img src="https://picsum.photos/seed/htmlmedia/800/400" alt="System diagram" />
 
-<video src="https://example.com/demo.mp4"></video>
+<video src="https://www.w3schools.com/tags/mov_bbb.mp4"></video>
 
-<audio src="https://example.com/podcast.mp3"></audio>
+<audio src="https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3"></audio>
 
 ## HTML Anchor Tags
 
