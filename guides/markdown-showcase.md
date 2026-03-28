@@ -169,6 +169,28 @@ Result:
 
 ### Standard Admonitions
 
+Source:
+
+```markdown
+!!! note "A Note"
+    This is a standard note admonition. Use it for supplementary information
+    that adds context without being critical to understanding.
+
+!!! warning "Breaking Change"
+    This API endpoint will be deprecated in v3.0. Migrate to the new
+    `/api/v2/resources` endpoint before the next major release.
+
+!!! tip "Pro Tip"
+    You can chain multiple API calls using the batch endpoint to reduce
+    round trips and improve performance.
+
+!!! danger "Security Warning"
+    Never commit API keys or secrets to version control. Use environment
+    variables or a secrets manager instead.
+```
+
+Result:
+
 !!! note "A Note"
     This is a standard note admonition. Use it for supplementary information
     that adds context without being critical to understanding.
@@ -186,6 +208,20 @@ Result:
     variables or a secrets manager instead.
 
 ### Collapsible Admonitions
+
+Source:
+
+```markdown
+??? note "Click to expand details"
+    This content is hidden by default. Users can expand it to see
+    additional details about the topic.
+
+???+ tip "Expanded by default"
+    This collapsible section starts expanded. Users can collapse it
+    if they want to hide it.
+```
+
+Result:
 
 Collapsed by default:
 
