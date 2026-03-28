@@ -8,15 +8,15 @@ sidebar_position: 99
 
 # Markdown Feature Showcase
 
-This page demonstrates every markdown feature supported by the content ingestion pipeline. For platform-specific formats (Mintlify, Docusaurus, GFM), each section shows the original source syntax in a code block followed by the transformed output that gets ingested.
+This page demonstrates every markdown feature supported by the platform. For platform-specific formats (Mintlify, Docusaurus, GFM), each section shows the original source syntax in a code block followed by the rendered result.
 
 ## Standard Text Formatting
 
-Regular paragraphs are separated by blank lines. Inline formatting includes **bold text**, *italic text*, ***bold italic***, `inline code`, and ~~strikethrough~~. Links look like [this](https://example.com) and inline images like ![logo](https://example.com/logo.png) stay embedded in the paragraph as text.
+Regular paragraphs are separated by blank lines. Inline formatting includes **bold text**, *italic text*, ***bold italic***, `inline code`, and ~~strikethrough~~. Links look like [this](https://example.com) and inline images like ![logo](https://example.com/logo.png) stay embedded in the paragraph.
 
 ## Headings
 
-All six heading levels are supported (H1 through H6). H1 is typically used as the page title and stripped when it matches the frontmatter title.
+All six heading levels are supported. H1 is typically used as the page title.
 
 ### Third-Level Heading
 
@@ -30,15 +30,11 @@ All six heading levels are supported (H1 through H6). H1 is typically used as th
 
 ### Unordered Lists
 
-Each item becomes a text bite with `groupType=UNORDERED_LIST`, sharing a `groupId`.
-
 - First item with some explanation
 - Second item covering a different topic
 - Third item wrapping up the list
 
 ### Ordered Lists
-
-Each item becomes a text bite with `groupType=ORDERED_LIST`.
 
 1. Clone the repository
 2. Install dependencies
@@ -46,8 +42,6 @@ Each item becomes a text bite with `groupType=ORDERED_LIST`.
 4. Open the browser to verify
 
 ### Nested Lists
-
-Nested items share the same `groupId` but have increasing `groupDepth` (0, 1, 2, ...). Use 4-space indentation.
 
 - Parent item one
     - Child item 1a
@@ -58,8 +52,6 @@ Nested items share the same `groupId` but have increasing `groupDepth` (0, 1, 2,
 
 ### Mixed Nesting
 
-Ordered and unordered lists can be mixed within the same group.
-
 1. First ordered item
     - Unordered child A
     - Unordered child B
@@ -67,8 +59,6 @@ Ordered and unordered lists can be mixed within the same group.
     - Another unordered child
 
 ## Code Blocks
-
-### Basic Fenced Block
 
 ```python
 def greet(name: str) -> str:
@@ -78,9 +68,7 @@ if __name__ == "__main__":
     print(greet("World"))
 ```
 
-### With Filename
-
-The filename appears after the language tag on the fence line.
+Code blocks can include a filename after the language tag:
 
 ```typescript api/handler.ts
 import { Request, Response } from 'express';
@@ -90,17 +78,7 @@ export function healthCheck(req: Request, res: Response) {
 }
 ```
 
-### Shell Commands
-
-```bash
-curl -X POST https://api.example.com/v1/data \
-  -H "Authorization: Bearer $TOKEN" \
-  -d '{"key": "value"}'
-```
-
 ## Tables
-
-GFM-style pipe tables are preserved as a single text bite.
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -122,26 +100,22 @@ Content above the break.
 
 Content below the break.
 
-## Standalone Media
+## Images
 
-Standalone images (alone in a paragraph) become `ImageBite`. Inline images mixed with text stay as markdown in a `TextBite`.
-
-### Images
+Standalone images are displayed as media:
 
 ![Architecture diagram](https://example.com/architecture.png)
 
-### Multiple Consecutive Images
-
-Each becomes a separate `ImageBite`.
+Multiple consecutive images each display separately:
 
 ![Frontend flow](https://example.com/frontend.png)
 ![Backend flow](https://example.com/backend.png)
 
 ## HTML Media Tags
 
-HTML media tags are converted to markdown syntax during preprocessing.
+HTML media tags are recognized and displayed as their respective media types.
 
-Original:
+Source:
 
 ```html
 <img src="https://example.com/diagram.png" alt="System diagram" />
@@ -149,7 +123,7 @@ Original:
 <audio src="https://example.com/podcast.mp3"></audio>
 ```
 
-Transformed (these will be ingested as media bites):
+Result:
 
 <img src="https://example.com/diagram.png" alt="System diagram" />
 
@@ -159,23 +133,21 @@ Transformed (these will be ingested as media bites):
 
 ## HTML Anchor Tags
 
-Block-level anchors are converted to markdown links.
+HTML anchors are converted to standard links.
 
-Original:
+Source:
 
 ```html
 <a href="https://example.com/docs">Read the full documentation</a>
 ```
 
-Transformed:
+Result:
 
 <a href="https://example.com/docs">Read the full documentation</a>
 
 ## Admonitions
 
-### Native Python-Markdown Syntax
-
-The canonical format used internally. All other admonition formats are converted to this.
+### Standard Admonitions
 
 !!! note "A Note"
     This is a standard note admonition. Use it for supplementary information
@@ -195,11 +167,13 @@ The canonical format used internally. All other admonition formats are converted
 
 ### Collapsible Admonitions
 
-Use `???` for collapsed by default, `???+` for expanded by default.
+Collapsed by default:
 
 ??? note "Click to expand details"
     This content is hidden by default. Users can expand it to see
     additional details about the topic.
+
+Expanded by default:
 
 ???+ tip "Expanded by default"
     This collapsible section starts expanded. Users can collapse it
@@ -207,53 +181,49 @@ Use `???` for collapsed by default, `???+` for expanded by default.
 
 ### GitHub GFM Callouts
 
-Original:
+Source:
 
 ```markdown
 > [!NOTE]
-> GFM-style callouts are automatically converted to standard admonitions.
+> GFM-style callouts are automatically converted.
 
 > [!TIP]
-> Use GFM callouts when writing content in GitHub-hosted repositories.
+> Use GFM callouts when writing content in GitHub repositories.
 
 > [!WARNING]
-> This format is recognized and transformed during content ingestion.
+> This format is recognized and transformed.
 
 > [!CAUTION]
 > Exercise caution when modifying production configuration.
 
 > [!IMPORTANT]
-> All team members must complete security training before accessing the admin panel.
+> All team members must complete security training.
 ```
 
-Transformed (each becomes `!!! type` admonition):
+Result:
 
 > [!NOTE]
-> GFM-style callouts are automatically converted to standard admonitions.
+> GFM-style callouts are automatically converted.
 
 > [!TIP]
-> Use GFM callouts when writing content in GitHub-hosted repositories.
+> Use GFM callouts when writing content in GitHub repositories.
 
 > [!WARNING]
-> This format is recognized and transformed during content ingestion.
+> This format is recognized and transformed.
 
 > [!CAUTION]
 > Exercise caution when modifying production configuration.
 
 > [!IMPORTANT]
-> All team members must complete security training before accessing the admin panel.
+> All team members must complete security training.
 
 ### Docusaurus Admonitions
 
-Original:
+Source:
 
 ```markdown
 :::note
 Docusaurus-style admonitions use triple-colon fences.
-:::
-
-:::tip
-Tips provide helpful suggestions that improve the developer experience.
 :::
 
 :::warning Custom Warning Title
@@ -261,19 +231,19 @@ Warnings with custom titles are supported.
 :::
 
 :::danger
-Critical information that could lead to data loss or security issues.
+Critical information about data loss or security.
 :::
 
 :::info
-Informational callouts for general context and background.
+Informational callouts for general context.
 :::
 
 :::caution
-Proceed carefully when making changes to shared infrastructure.
+Proceed carefully with shared infrastructure.
 :::
 ```
 
-Transformed (each becomes `!!! type` admonition):
+Result:
 
 :::note
 Docusaurus-style admonitions use triple-colon fences.
@@ -301,18 +271,18 @@ Proceed carefully when making changes to shared infrastructure.
 
 ### Mintlify Admonitions
 
-Original:
+Source:
 
 ```markdown
-<Note>Mintlify-style JSX admonitions are transformed into the standard format.</Note>
-<Warning>Database migrations are irreversible. Always back up first.</Warning>
-<Info>The platform supports up to 100 concurrent connections per tenant.</Info>
-<Tip>Enable debug logging with LOG_LEVEL=debug for detailed traces.</Tip>
-<Check>Your environment is correctly configured. All health checks passing.</Check>
-<Caution>Rate limiting is enforced at 1000 requests per minute per API key.</Caution>
+<Note>Mintlify-style notes.</Note>
+<Warning>Important warning message.</Warning>
+<Info>Informational message.</Info>
+<Tip>Helpful tip.</Tip>
+<Check>Success confirmation.</Check>
+<Caution>Caution message.</Caution>
 ```
 
-Transformed (each becomes `!!! type` admonition):
+Result:
 
 <Note>Mintlify-style JSX admonitions are transformed into the standard format.</Note>
 
@@ -328,11 +298,7 @@ Transformed (each becomes `!!! type` admonition):
 
 ## Tab Groups
 
-Each tab becomes a separate text bite with `groupType=TAB_GROUP` and `groupLabel` set to the tab name.
-
-### Native Tab Syntax
-
-The canonical format. Other tab formats are converted to this.
+### Standard Tabs
 
 !!! tabs
     - **JavaScript**
@@ -355,7 +321,7 @@ The canonical format. Other tab formats are converted to this.
 
 ### Docusaurus Tabs
 
-Original:
+Source:
 
 ````markdown
 <Tabs>
@@ -376,7 +342,7 @@ yarn add @acme/sdk
 </Tabs>
 ````
 
-Transformed (becomes `!!! tabs` with bullet items):
+Result:
 
 <Tabs>
   <TabItem label="npm">
@@ -404,22 +370,22 @@ pnpm add @acme/sdk
 
 ### Mintlify CodeGroup
 
-Original:
+Source:
 
 ````markdown
 <CodeGroup>
 ```js server.js
-const express = require('express');
+const app = express();
 app.listen(3000);
 ```
 ```python server.py
-from flask import Flask
+app = Flask(__name__)
 app.run(port=3000)
 ```
 </CodeGroup>
 ````
 
-Transformed (becomes `!!! tabs` with language/filename as labels):
+Result:
 
 <CodeGroup>
 ```js server.js
@@ -446,11 +412,9 @@ if __name__ == '__main__':
 ```
 </CodeGroup>
 
-## MDX Components
+## Steps
 
-### Steps
-
-Original:
+Source:
 
 ```markdown
 <Steps>
@@ -463,7 +427,7 @@ Original:
 </Steps>
 ```
 
-Transformed (becomes a numbered list with bold titles):
+Result:
 
 <Steps>
   <Step title="Create an account">
@@ -483,9 +447,9 @@ Transformed (becomes a numbered list with bold titles):
   </Step>
 </Steps>
 
-### Cards
+## Cards
 
-Original:
+Source:
 
 ```markdown
 <CardGroup>
@@ -495,7 +459,7 @@ Original:
 </CardGroup>
 ```
 
-Transformed (becomes bullet list with bold linked titles; CardGroup wrapper stripped):
+Result:
 
 <CardGroup>
 <Card title="Quick Start Guide" href="getting-started">Get up and running in under five minutes.</Card>
@@ -503,9 +467,9 @@ Transformed (becomes bullet list with bold linked titles; CardGroup wrapper stri
 <Card title="Architecture" href="architecture/overview">Understand how the system is structured.</Card>
 </CardGroup>
 
-### Accordion (Collapsible)
+## Accordion
 
-Original:
+Source:
 
 ```markdown
 <Accordion title="What auth methods are supported?">
@@ -513,7 +477,7 @@ OAuth 2.0, API keys, and SAML SSO.
 </Accordion>
 ```
 
-Transformed (becomes `??? note "Title"`):
+Result:
 
 <Accordion title="What authentication methods are supported?">
 The platform supports OAuth 2.0 with OIDC, API key authentication, and SAML SSO for enterprise accounts. See the [Authentication Guide](authentication) for details.
@@ -523,9 +487,9 @@ The platform supports OAuth 2.0 with OIDC, API key authentication, and SAML SSO 
 Navigate to Settings > API Keys, revoke the existing key, and generate a new one. The old key is invalidated immediately.
 </Accordion>
 
-### Expandable
+## Expandable
 
-Original:
+Source:
 
 ```markdown
 <Expandable title="Advanced options">
@@ -533,7 +497,7 @@ Custom config details here.
 </Expandable>
 ```
 
-Transformed (becomes `??? note "Title"`):
+Result:
 
 <Expandable title="Advanced configuration options">
 You can customize connection pooling, timeout values, and retry policies
@@ -543,7 +507,7 @@ of supported configuration parameters.
 
 ## Collapsible HTML Sections
 
-Original:
+Source:
 
 ```markdown
 <details>
@@ -552,7 +516,7 @@ Error log content here.
 </details>
 ```
 
-Transformed (becomes `??? note "Title"`):
+Result:
 
 <details>
 <summary>View the full error log</summary>
@@ -569,17 +533,15 @@ Transformed (becomes `??? note "Title"`):
 
 ## Internal Links
 
-Links to other pages within the same module are rewritten to section IDs during ingestion. The `./` prefix signals to the client that this is an intra-module link. Relative paths are resolved against the source file's directory.
+Links to other pages within the same module use relative paths:
 
 - Sibling link: [Authentication Guide](authentication)
 - Cross-group link: [Architecture Overview](../architecture/overview)
 - Root-relative link: [Getting Started](../getting-started)
 
-## Math (Preserved as Text)
+## Math
 
-Math syntax is preserved as-is for client-side rendering. No server-side LaTeX processing.
-
-Inline math like $E = mc^2$ and block math:
+Inline math like $E = mc^2$ and block math are supported:
 
 $$
 \sum_{i=1}^{n} x_i = x_1 + x_2 + \cdots + x_n
