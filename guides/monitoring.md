@@ -28,7 +28,7 @@ OpenTelemetry instrumentation propagates trace context across all services. Trac
 
 ## Health Checks
 
-Every service exposes a `/health` endpoint that returns the service status along with dependency checks (database connectivity, cache availability, external API reachability). The orchestration layer polls these endpoints and automatically removes unhealthy instances from the load balancer rotation.
+Every service exposes a `/health` endpoint that returns the service status along with dependency checks (database connectivity, cache availability, external API reachability). The orchestration layer polls these endpoints and automatically removes unhealthy instances from the load balancer rotation. Health check responses include version information for deployment verification.
 
 ## Related Topics
 
