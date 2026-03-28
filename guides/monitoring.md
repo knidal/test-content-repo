@@ -26,6 +26,10 @@ Alerts are defined in Prometheus Alertmanager rules and routed to PagerDuty for 
 
 OpenTelemetry instrumentation propagates trace context across all services. Traces are collected by Jaeger and visualized in the Grafana Tempo backend. Every API request generates a trace ID that appears in logs, metrics, and error reports for end-to-end correlation.
 
+## Health Checks
+
+Every service exposes a `/health` endpoint that returns the service status along with dependency checks (database connectivity, cache availability, external API reachability). The orchestration layer polls these endpoints and automatically removes unhealthy instances from the load balancer rotation.
+
 ## Related Topics
 
 For authentication-specific monitoring and login flow metrics, see the [Authentication Guide](authentication). For initial setup instructions, see the [Getting Started](../getting-started) guide.
