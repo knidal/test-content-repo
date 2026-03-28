@@ -10,14 +10,14 @@
       "pages": [
         "architecture/overview",
         "architecture/data-layer",
-        "architecture/deployment"
+        "architecture/deployment",
+        "architecture/observability"
       ]
     },
     {
       "group": "Guides",
       "pages": [
         "guides/authentication",
-        "guides/observability",
         "guides/markdown-showcase"
       ]
     }
