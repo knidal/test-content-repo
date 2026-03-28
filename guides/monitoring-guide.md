@@ -1,4 +1,4 @@
-# Monitoring
+# Monitoring Guide
 
 Observability is a first-class concern in the Acme Platform. Every service emits structured logs, metrics, and distributed traces that feed into a centralized observability stack.
 
