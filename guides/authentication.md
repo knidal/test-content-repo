@@ -1,3 +1,7 @@
+---
+title: Authentication
+---
+
 # Authentication
 
 The platform uses OAuth 2.0 with OpenID Connect for all user authentication. Identity is managed by an internal auth service backed by a dedicated user store.
@@ -19,3 +23,7 @@ Each user belongs to exactly one tenant. The tenant ID in the JWT is validated o
 ## API Keys
 
 For service-to-service and programmatic access, the platform supports API keys. Keys are generated per tenant, scoped to specific permissions, and rotated every 90 days. API key authentication bypasses the OAuth flow but enforces the same authorization rules.
+
+## Related Topics
+
+For monitoring auth service health and tracking login metrics, see the [Monitoring Guide](monitoring). For the underlying system architecture, see the [Architecture Overview](../architecture/overview).

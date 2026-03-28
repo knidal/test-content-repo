@@ -20,3 +20,7 @@ Cache invalidation follows a write-through pattern. When a service updates its p
 ## Event Store
 
 Domain events are persisted in a dedicated append-only event store before being published to the message bus. This guarantees at-least-once delivery and enables event replay for rebuilding projections or debugging production issues.
+
+## See Also
+
+For the overall system design, see the [Architecture Overview](overview). For how we monitor data layer health, see the [Monitoring Guide](../guides/monitoring).

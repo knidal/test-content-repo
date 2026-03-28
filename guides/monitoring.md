@@ -25,3 +25,7 @@ Alerts are defined in Prometheus Alertmanager rules and routed to PagerDuty for 
 ## Distributed Tracing
 
 OpenTelemetry instrumentation propagates trace context across all services. Traces are collected by Jaeger and visualized in the Grafana Tempo backend. Every API request generates a trace ID that appears in logs, metrics, and error reports for end-to-end correlation.
+
+## Related Topics
+
+For authentication-specific monitoring and login flow metrics, see the [Authentication Guide](authentication). For initial setup instructions, see the [Getting Started](../getting-started) guide.

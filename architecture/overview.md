@@ -1,3 +1,7 @@
+---
+title: System Architecture
+---
+
 # Architecture Overview
 
 The Acme Platform follows a modular microservices architecture. Each service is independently deployable, communicates over gRPC, and stores its data in a dedicated PostgreSQL schema.
@@ -15,3 +19,7 @@ The architecture is built around three core principles:
 All inter-service communication flows through an Envoy-based service mesh. The mesh provides automatic retries, circuit breaking, mutual TLS, and distributed tracing without requiring changes to application code.
 
 Traffic policies are defined in YAML configuration files and applied via the control plane. Each service registers itself on startup and receives its routing rules dynamically.
+
+## Related Topics
+
+For details on how data is stored and accessed, see the [Data Layer](data-layer) documentation. For the CI/CD pipeline and rollout strategy, see [Deployment](deployment).

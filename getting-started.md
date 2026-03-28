@@ -1,3 +1,7 @@
+---
+title: Getting Started
+---
+
 # Getting Started
 
 Welcome to the Acme Platform. This guide walks you through setting up your environment and running your first project.
@@ -43,3 +47,7 @@ PORT=3001 npm run dev
 ```
 
 For Docker-related issues, ensure the Docker daemon is running and your user has permission to access the Docker socket.
+
+## Next Steps
+
+Once you have the platform running locally, read the [Architecture Overview](architecture/overview) to understand how the system is structured, and the [Authentication Guide](guides/authentication) to set up user login.

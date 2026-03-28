@@ -1,4 +1,6 @@
-# Deployment
+---
+title: Deployment & CI/CD
+---
 
 All services are deployed to Kubernetes clusters managed by EKS. The deployment pipeline is fully automated through GitHub Actions.
 
@@ -19,3 +21,7 @@ If a canary deployment detects elevated error rates or latency, it automatically
 ## Configuration
 
 Runtime configuration is stored in AWS Parameter Store and injected as environment variables at deploy time. Secrets are stored in AWS Secrets Manager and mounted as files in the pod filesystem. No secrets are ever baked into Docker images.
+
+## Related Topics
+
+For the system architecture that these deployments support, see the [Architecture Overview](overview). For how to set up authentication in deployed environments, see the [Authentication Guide](../guides/authentication).
