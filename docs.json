@@ -17,7 +17,7 @@
       "group": "Guides",
       "pages": [
         "guides/authentication",
-        "guides/monitoring",
+        "guides/observability",
         "guides/markdown-showcase"
       ]
     }
