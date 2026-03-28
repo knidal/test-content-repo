@@ -1,12 +1,12 @@
 # Data Layer
 
-The data layer manages all persistent storage, caching, and data access patterns across the platform.
+The data layer manages all persistent storage, caching, and data access patterns across the Acme Platform.
 
 ## Database Strategy
 
 Each microservice owns a dedicated PostgreSQL schema. Migrations are managed with Flyway and run automatically on service startup. Cross-service data access is strictly prohibited — services must use APIs or consume events to access data owned by other services.
 
-Connection pooling is handled by PgBouncer, configured in transaction mode. Each service maintains a pool of 10 connections by default, tunable via environment variables.
+Connection pooling is handled by PgBouncer, configured in transaction mode. Each service maintains a pool of 20 connections by default, tunable via environment variables.
 
 ## Caching
 

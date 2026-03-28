@@ -1,6 +1,6 @@
 # Monitoring
 
-Observability is a first-class concern in the Acme Platform. Every service emits structured logs, metrics, and traces that feed into a centralized observability stack.
+Observability is a first-class concern in the Acme Platform. Every service emits structured logs, metrics, and distributed traces that feed into a centralized observability stack.
 
 ## Logging
 
@@ -14,7 +14,7 @@ Log levels follow a strict convention:
 
 ## Metrics
 
-Prometheus scrapes metrics from each service's `/metrics` endpoint every 15 seconds. Key dashboards in Grafana track request rate, error rate, p50/p95/p99 latency, and resource utilization per service.
+Prometheus scrapes metrics from each service's `/metrics` endpoint every 30 seconds. Key dashboards in Grafana track request rate, error rate, p50/p95/p99 latency, and resource utilization per service.
 
 Custom business metrics (signups per hour, API calls per tenant) are also exposed as Prometheus counters and gauges.
 
