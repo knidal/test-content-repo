@@ -361,53 +361,57 @@ Result:
 
 <Caution>Rate limiting is enforced at 1000 requests per minute per API key.</Caution>
 
-## Tab Groups
+## Variant Groups
 
-### Standard Tabs
+Variants represent the same content adapted for different contexts (e.g., npm vs pnpm, macOS vs Linux). "Variant" captures the content creator's intent — the client is free to render variants as tabs, toggles, dropdowns, or any other UI pattern.
+
+### Standard Variants
 
 Source:
 
 ````markdown
-!!! tabs
-    - **JavaScript**
-      ```js
-      const response = await fetch('/api/data');
-      const data = await response.json();
-      console.log(data);
-      ```
-    - **Python**
-      ```python
-      import requests
-      response = requests.get('/api/data')
-      data = response.json()
-      print(data)
-      ```
-    - **cURL**
-      ```bash
-      curl -s https://api.example.com/data | jq .
-      ```
+!!! variant "JavaScript"
+    ```js
+    const response = await fetch('/api/data');
+    const data = await response.json();
+    console.log(data);
+    ```
+
+!!! variant "Python"
+    ```python
+    import requests
+    response = requests.get('/api/data')
+    data = response.json()
+    print(data)
+    ```
+
+!!! variant "cURL"
+    ```bash
+    curl -s https://api.example.com/data | jq .
+    ```
 ````
 
 Result:
 
-!!! tabs
-    - **JavaScript**
-      ```js
-      const response = await fetch('/api/data');
-      const data = await response.json();
-      console.log(data);
-      ```
-    - **Python**
-      ```python
-      import requests
-      response = requests.get('/api/data')
-      data = response.json()
-      print(data)
-      ```
-    - **cURL**
-      ```bash
-      curl -s https://api.example.com/data | jq .
-      ```
+!!! variant "JavaScript"
+    ```js
+    const response = await fetch('/api/data');
+    const data = await response.json();
+    console.log(data);
+    ```
+
+!!! variant "Python"
+    ```python
+    import requests
+    response = requests.get('/api/data')
+    data = response.json()
+    print(data)
+    ```
+
+!!! variant "cURL"
+    ```bash
+    curl -s https://api.example.com/data | jq .
+    ```
 
 ### Docusaurus Tabs
 
@@ -523,7 +527,9 @@ if __name__ == '__main__':
 ```
 </CodeGroup>
 
-## Steps
+## Step Groups
+
+Steps represent a sequential procedure where each step has a title and body content. The client can render steps as numbered cards, progress steppers, or any other sequential UI pattern.
 
 Source:
 
