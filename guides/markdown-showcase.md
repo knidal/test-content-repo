@@ -237,6 +237,8 @@ Expanded by default:
 
 ### GitHub GFM Callouts
 
+> GFM blockquote callouts (`> [!NOTE]`, etc.) are automatically converted to the standard `!!!` admonition format during ingestion.
+
 Source:
 
 ```markdown
@@ -274,6 +276,8 @@ Result:
 > All team members must complete security training.
 
 ### Docusaurus Admonitions
+
+> Docusaurus triple-colon fences (`:::note`, etc.) are automatically converted to the standard `!!!` admonition format during ingestion.
 
 Source:
 
@@ -330,6 +334,8 @@ Proceed carefully with shared infrastructure.
 :::
 
 ### Mintlify Admonitions
+
+> Mintlify JSX admonitions (`<Note>`, `<Warning>`, etc.) are automatically converted to the standard `!!!` admonition format during ingestion.
 
 Source:
 
@@ -605,6 +611,8 @@ Result:
 
 ## Cards
 
+> The `<CardGroup>/<Card>` format is used by Mintlify. Card wrappers are stripped during ingestion — the card content and links are preserved as text.
+
 Source:
 
 ```markdown
@@ -624,6 +632,8 @@ Result:
 </CardGroup>
 
 ## Accordion
+
+> The `<Accordion>` format is used by Mintlify. Accordions are converted to collapsible admonitions (`???`) during ingestion, using the accordion title as the admonition title.
 
 Source:
 
@@ -649,6 +659,8 @@ Navigate to Settings > API Keys, revoke the existing key, and generate a new one
 
 ## Expandable
 
+> The `<Expandable>` format is used by Mintlify. Expandable sections are converted to collapsible admonitions (`???`) during ingestion.
+
 Source:
 
 ```markdown
@@ -668,6 +680,8 @@ of supported configuration parameters.
 </Expandable>
 
 ## Collapsible HTML Sections
+
+> HTML `<details>/<summary>` elements are converted to collapsible admonitions (`???`) during ingestion, using the summary text as the title.
 
 Source:
 
