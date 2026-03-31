@@ -12,9 +12,31 @@ This page demonstrates every markdown feature supported by the platform. For pla
 
 ## Standard Text Formatting
 
+Source:
+
+```markdown
+Regular paragraphs are separated by blank lines. Inline formatting
+includes **bold text**, *italic text*, ***bold italic***, `inline code`,
+and ~~strikethrough~~. Links look like [this](https://example.com).
+```
+
+Result:
+
 Regular paragraphs are separated by blank lines. Inline formatting includes **bold text**, *italic text*, ***bold italic***, `inline code`, and ~~strikethrough~~. Links look like [this](https://example.com).
 
 ## Headings
+
+Source:
+
+```markdown
+## Second-Level Heading
+### Third-Level Heading
+#### Fourth-Level Heading
+##### Fifth-Level Heading
+###### Sixth-Level Heading
+```
+
+Result:
 
 All six heading levels are supported. H1 is typically used as the page title.
 
@@ -30,11 +52,32 @@ All six heading levels are supported. H1 is typically used as the page title.
 
 ### Unordered Lists
 
+Source:
+
+```markdown
+- First item with some explanation
+- Second item covering a different topic
+- Third item wrapping up the list
+```
+
+Result:
+
 - First item with some explanation
 - Second item covering a different topic
 - Third item wrapping up the list
 
 ### Ordered Lists
+
+Source:
+
+```markdown
+1. Clone the repository
+2. Install dependencies
+3. Start the development server
+4. Open the browser to verify
+```
+
+Result:
 
 1. Clone the repository
 2. Install dependencies
@@ -42,6 +85,19 @@ All six heading levels are supported. H1 is typically used as the page title.
 4. Open the browser to verify
 
 ### Nested Lists
+
+Source:
+
+```markdown
+- Parent item one
+    - Child item 1a
+    - Child item 1b
+        - Grandchild item
+- Parent item two
+    - Child item 2a
+```
+
+Result:
 
 - Parent item one
     - Child item 1a
@@ -52,6 +108,18 @@ All six heading levels are supported. H1 is typically used as the page title.
 
 ### Mixed Nesting
 
+Source:
+
+```markdown
+1. First ordered item
+    - Unordered child A
+    - Unordered child B
+2. Second ordered item
+    - Another unordered child
+```
+
+Result:
+
 1. First ordered item
     - Unordered child A
     - Unordered child B
@@ -59,6 +127,20 @@ All six heading levels are supported. H1 is typically used as the page title.
     - Another unordered child
 
 ## Code Blocks
+
+Source:
+
+````markdown
+```python
+def greet(name: str) -> str:
+    return f"Hello, {name}!"
+
+if __name__ == "__main__":
+    print(greet("World"))
+```
+````
+
+Result:
 
 ```python
 def greet(name: str) -> str:
@@ -70,6 +152,18 @@ if __name__ == "__main__":
 
 Code blocks can include a filename after the language tag:
 
+````markdown
+```typescript api/handler.ts
+import { Request, Response } from 'express';
+
+export function healthCheck(req: Request, res: Response) {
+  res.json({ status: 'ok', timestamp: Date.now() });
+}
+```
+````
+
+Result:
+
 ```typescript api/handler.ts
 import { Request, Response } from 'express';
 
@@ -80,6 +174,19 @@ export function healthCheck(req: Request, res: Response) {
 
 ## Tables
 
+Source:
+
+```markdown
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/users` | List all users |
+| POST | `/api/users` | Create a new user |
+| GET | `/api/users/:id` | Get user by ID |
+| DELETE | `/api/users/:id` | Delete a user |
+```
+
+Result:
+
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET | `/api/users` | List all users |
@@ -89,10 +196,31 @@ export function healthCheck(req: Request, res: Response) {
 
 ## Block Quotes
 
+Source:
+
+```markdown
+> The best way to predict the future is to invent it.
+> — Alan Kay
+```
+
+Result:
+
 > The best way to predict the future is to invent it.
 > — Alan Kay
 
 ## Thematic Breaks
+
+Source:
+
+```markdown
+Content above the break.
+
+---
+
+Content below the break.
+```
+
+Result:
 
 Content above the break.
 
@@ -101,6 +229,14 @@ Content above the break.
 Content below the break.
 
 ## Images
+
+Source:
+
+```markdown
+![Architecture diagram](https://picsum.photos/seed/architecture/800/400)
+```
+
+Result:
 
 Standalone images are displayed as media:
 
@@ -112,8 +248,6 @@ Multiple consecutive images each display separately:
 ![Backend flow](https://picsum.photos/seed/backend/600/300)
 
 ## Video and Audio
-
-Markdown syntax for video and audio files:
 
 Source:
 
@@ -709,13 +843,35 @@ Result:
 
 ## Internal Links
 
-Links to other pages within the same module use relative paths:
+Source:
+
+```markdown
+- Sibling link: [Authentication Guide](authentication)
+- Cross-group link: [Architecture Overview](../architecture/overview)
+- Root-relative link: [Getting Started](../getting-started)
+```
+
+Result:
+
+Links to other pages within the same module use relative paths. During ingestion, relative paths are rewritten to section IDs (e.g., `[text](/sectionId)`).
 
 - Sibling link: [Authentication Guide](authentication)
 - Cross-group link: [Architecture Overview](../architecture/overview)
 - Root-relative link: [Getting Started](../getting-started)
 
 ## Math
+
+Source:
+
+```markdown
+Inline math like $E = mc^2$ and block math:
+
+$$
+\sum_{i=1}^{n} x_i = x_1 + x_2 + \cdots + x_n
+$$
+```
+
+Result:
 
 Inline math like $E = mc^2$ and block math are supported:
 
