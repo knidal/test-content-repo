@@ -415,6 +415,8 @@ Result:
 
 ### Docusaurus Tabs
 
+> The `<Tabs>/<TabItem>` format is used by Docusaurus. It is automatically converted to the standard `!!! variant` format during ingestion.
+
 Source:
 
 ````markdown
@@ -470,6 +472,8 @@ pnpm add @acme/sdk
 </Tabs>
 
 ### Mintlify CodeGroup
+
+> The `<CodeGroup>` format is used by Mintlify for grouped code blocks. It is automatically converted to the standard `!!! variant` format during ingestion, using the filename as the variant label.
 
 Source:
 
@@ -530,6 +534,40 @@ if __name__ == '__main__':
 ## Step Groups
 
 Steps represent a sequential procedure where each step has a title and body content. The client can render steps as numbered cards, progress steppers, or any other sequential UI pattern.
+
+### Standard Steps
+
+Source:
+
+````markdown
+!!! step "Create an account"
+    Sign up at the developer portal with your company email.
+    You will receive a verification link within five minutes.
+
+!!! step "Generate API credentials"
+    Navigate to Settings > API Keys and create a new key pair.
+    Store the secret key securely — it is only shown once.
+
+!!! step "Make your first request"
+    Use the credentials to authenticate and call the API.
+````
+
+Result:
+
+!!! step "Create an account"
+    Sign up at the developer portal with your company email.
+    You will receive a verification link within five minutes.
+
+!!! step "Generate API credentials"
+    Navigate to Settings > API Keys and create a new key pair.
+    Store the secret key securely — it is only shown once.
+
+!!! step "Make your first request"
+    Use the credentials to authenticate and call the API.
+
+### Mintlify Steps
+
+> The `<Steps>/<Step>` format is used by Mintlify. It is automatically converted to the standard `!!! step` format during ingestion.
 
 Source:
 
