@@ -20,6 +20,13 @@
         "guides/monitoring-guide",
         "guides/markdown-showcase"
       ]
+    },
+    {
+      "group": "Plugins",
+      "pages": [
+        "plugins/plugins",
+        "plugins/extra-plugin"
+      ]
     }
   ]
 }
